@@ -9,9 +9,6 @@ function WordToPDFConverter() {
     setFile(selectedFile);
   };
 
-  const serverUrl = process.env.REACT_APP_SERVER_URL;
-
-
   const convertToPDF = async () => {
     if (!file) return;
 
@@ -19,7 +16,7 @@ function WordToPDFConverter() {
     formData.append('file', file);
 
     // Send the Word document to the server for conversion
-    fetch(`${serverUrl}/convert`, {
+    fetch('http://localhost:3001/convert', {
       method: 'POST',
       body: formData,
     })
